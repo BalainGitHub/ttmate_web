@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
@@ -34,6 +34,10 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'capistrano', '~>2'
+
+gem 'rubber', '~>2'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
@@ -45,3 +49,8 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+#gem 'rubber'
+gem 'open4'
+gem 'gelf'
+gem 'graylog2_exceptions', :git => 'git://github.com/wr0ngway/graylog2_exceptions.git'
+gem 'graylog2-resque'
