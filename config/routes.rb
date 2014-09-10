@@ -2,6 +2,18 @@ TtmateWeb::Application.routes.draw do
   #get ':controller(/:action(/:id(.:format)))'
   root to: 'home#index'
 
+  namespace :api, defaults: {format: :json} do
+    scope module: :v1, constraints: ApiConstraints.new(version: 1, default: :true) do
+      #resources :user do
+        #match 'users' => 'users#create', :via => :post
+        #post 'users' => 'users#create'
+      #end
+      resources :users do
+        resources :devices
+      end
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
