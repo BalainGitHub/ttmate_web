@@ -2,6 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+@font-face {
+    font-family: "Opificio";
+    src: font_url(/assets/Opificio-neue.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Simpetico";
+    src: font_url(/assets/Simpetico.otf) format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
 @font-face {
   font-family: "gandhi sans";
   font-style: normal;
@@ -36,19 +49,17 @@ body, h1, h2, h3, h4, h5, h6 {
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 2px;
 }
-.container {
-  max-width: 920px;
-}
 .navbar {
-  background: #464749;
+  background: #e74d14;
   padding: 0;
+  border: 0;
 }
 .navbar .navbar-brand {
   overflow: visible;
   padding-top: 0.3em;
   padding-bottom: 0.5em;
   margin: 0;
-  font-family: "gandhi serif", georgia, serif;
+  font-family: "Simpetico", "gandhi serif", georgia, serif;
   font-style: bold;
   color: #fff;
 }
@@ -58,8 +69,8 @@ body, h1, h2, h3, h4, h5, h6 {
   margin: 0 1.5em;
   text-align: center;
   padding-top: 2em;
-  font-family: "gandhi serif", georgia, serif;
-  color: #e74d14;
+  font-family: "Simpetico", "gandhi serif", georgia, serif;
+  color: #ffffff;
   font-style: bold;
   font-size: 1.3em;
 }
@@ -88,25 +99,28 @@ body, h1, h2, h3, h4, h5, h6 {
   border-color: #464749 #464749 #464749;
 }
 
-
 .jumbotron {
-  background: url(/assets/noisy_net_orange.png);
-  color: #fff;
-  padding: 6.5em 0 6em;
+  background-color: #8F9195;
+  color: #ffffff;
+  padding: 6.5em 0 3em;
   text-align: center;
 }
 .jumbotron h1 {
-  font-family: "gandhi serif", georgia, serif;
-  font-size: 3em;
+  font-family: "Simpetico", "gandhi serif", georgia, serif;
+  font-size: 3.5em;
   font-weight: bold;
   text-shadow: 1px 1px 3px #000;
 }
 .jumbotron h2 {
+  font-family: "Opificio", "gandhi serif", georgia, serif;
   font-size: 1.2em;
   font-style: italic;
-  font-weight: normal;
+  font-weight: bold;
   line-height: 1.4em;
   margin-bottom: 1.4em;
+}
+.jumbotron h3 {
+  font-family: "Opificio", "gandhi serif", georgia, serif;
 }
 .jumbotron .btn {
   box-shadow: 1px 1px 3px #000;
@@ -126,7 +140,7 @@ body, h1, h2, h3, h4, h5, h6 {
   margin: 2em 8% 2.4em;
 }
 .subhead {
-  color: #000;
+  color: #e74d14;
   font-family: "gandhi serif", georgia, serif;
   font-size: 3em;
   font-weight: bold;
