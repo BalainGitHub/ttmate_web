@@ -102,12 +102,12 @@ body, h1, h2, h3, h4, h5, h6 {
 .jumbotron {
   background-color: #e74d14;
   color: #ffffff;
-  padding: 6.5em 0 3em;
+  padding: 4em 0 3em;
   text-align: center;
 }
 .jumbotron h1 {
   font-family: "Simpetico", "gandhi serif", georgia, serif;
-  font-size: 3.5em;
+  font-size: 3em;
   font-weight: bold;
   text-shadow: 1px 1px 3px #000;
 }
