@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140909065521) do
+ActiveRecord::Schema.define(version: 20140914152651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,10 +30,17 @@ ActiveRecord::Schema.define(version: 20140909065521) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "mobile",         limit: 18
+    t.string   "status",         limit: 12
+    t.string   "other_value_1",  limit: 40
+    t.string   "other_value_2",  limit: 60
+    t.string   "other_value_3",  limit: 40
+    t.string   "gcm_id",         limit: 260
   end
 
+  add_index "devices", ["mobile"], name: "index_devices_on_mobile", using: :btree
+
   create_table "users", force: true do |t|
-    t.string   "mobile",       limit: 20
     t.string   "email",        limit: 30
     t.string   "first_name",   limit: 20
     t.string   "last_name",    limit: 20
@@ -42,9 +49,12 @@ ActiveRecord::Schema.define(version: 20140909065521) do
     t.text     "home_address"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "other_ids_1",  limit: 40
+    t.string   "other_ids_2",  limit: 40
+    t.string   "other_ids_3",  limit: 40
+    t.string   "status",       limit: 12
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["mobile"], name: "index_users_on_mobile", unique: true, using: :btree
 
 end

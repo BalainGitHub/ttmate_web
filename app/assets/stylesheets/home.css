@@ -4,8 +4,8 @@
 
 
 @font-face {
-    font-family: "Opificio";
-    src: font_url(/assets/Opificio-neue.ttf);
+    font-family: "Sparkler";
+    src: font_url(/assets/Sparkler-demo.ttf);
     font-weight: normal;
     font-style: normal;
 }
@@ -19,25 +19,25 @@
   font-family: "gandhi sans";
   font-style: normal;
   font-weight: 400;
-  src: url(../fonts/gandhi-sans.ttf), url(../fonts/gandhi-serif.eot);
+  src: font_url(/assets/gandhi-sans.ttf), font_url(/assets/gandhi-serif.eot);
 }
 @font-face {
   font-family: "gandhi sans";
   font-style: normal;
   font-weight: 700;
-  src: url(../fonts/gandhi-bold-sans.ttf), url(../fonts/gandhi-bold-sans.eot);
+  src: font_url(/assets/gandhi-bold-sans.ttf), font_url(/assets/gandhi-bold-sans.eot);
 }
 @font-face {
   font-family: "gandhi serif";
   font-style: normal;
   font-weight: 400;
-  src: url(../fonts/gandhi-serif.ttf), url(../fonts/gandhi-serif.eot);
+  src: font_url(/assets/gandhi-serif.ttf), font_url(/assets/gandhi-serif.eot);
 }
 @font-face {
   font-family: "gandhi serif";
   font-style: normal;
   font-weight: 700;
-  src: url(../fonts/gandhi-bold-serif.ttf), url(../fonts/gandhi-bold-serif.eot);
+  src: font_url(/assets/gandhi-bold-serif.ttf), font_url(/assets/gandhi-bold-serif.eot);
 }
 body {
   font-size: 14px;
@@ -100,8 +100,8 @@ body, h1, h2, h3, h4, h5, h6 {
 }
 
 .jumbotron {
-  background-color: #8F9195;
-  color: #ffffff;
+  background-color: #e5e5e5;
+  color: #e74d14;
   padding: 6.5em 0 3em;
   text-align: center;
 }
@@ -112,7 +112,7 @@ body, h1, h2, h3, h4, h5, h6 {
   text-shadow: 1px 1px 3px #000;
 }
 .jumbotron h2 {
-  font-family: "Opificio", "gandhi serif", georgia, serif;
+  font-family: "Simpetico", "gandhi serif", georgia, serif;
   font-size: 1.2em;
   font-style: italic;
   font-weight: bold;
@@ -120,7 +120,7 @@ body, h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1.4em;
 }
 .jumbotron h3 {
-  font-family: "Opificio", "gandhi serif", georgia, serif;
+  font-family: "Simpetico", "gandhi serif", georgia, serif;
 }
 .jumbotron .btn {
   box-shadow: 1px 1px 3px #000;

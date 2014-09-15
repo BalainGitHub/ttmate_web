@@ -24,25 +24,94 @@ module Api
 			def create
 				@user = User.new(user_params)
 
-				result = @user.save
+				#===========================================
+				# Check if user exists and active
+				if User.exists?(:email => @user[:email])
 
-				respond_to do |format|
-					if result
-						format.json { render :status => 200,
-           					   				 :json => { :success => true,
-                     					  				:info => "Registered",
-                     					  				:data => @user 
-                     								  }
-                      				}
-					else 
-						format.json { render :status => :unprocessable_entity,
-            				   				 :json => { :success => false,
-                        				  				:info => user.errors,
-                        				  				:data => {} 
-                        							  }
-                        			}
+					@devices = @user.devices.build(user_params[:devices_attributes])
+					imei = @devices.first[:imei]
+					mobile = @devices.first[:mobile]
+
+					# Delete devices if imei or mobile already exisits.
+					if Device.exists?(:imei => imei)
+						del_device = Device.where(:imei => imei).first
+						del_device.destroy
+					end
+					if Device.exists?(:mobile => mobile)
+						del_device = Device.where(:mobile => mobile).first
+						del_device.destroy
+					end
+
+					# Assign esisting user id to device user id.
+					existing_user = User.where(:email => @user[:email]).first
+					@devices.first[:user_id] = existing_user.id
+
+					# Save only the device.
+					devices_result = @devices.first.save
+
+					respond_to do |format|
+						if devices_result
+							format.json { render :status => 200,
+	           					   				 :json => { :success => true,
+	                     					  				:info => "DeviceAdded",
+	                     					  				:data => @devices
+	                     								  }
+	                      				}
+						else 
+							format.json { render :status => :unprocessable_entity,
+	            				   				 :json => { :success => false,
+	                        				  				:info => @device.errors,
+	                        				  				:data => {} 
+	                        							  }
+	                        			}
+						end
+					end
+
+				else 
+					imei = @user.devices.first[:imei]
+					mobile = @user.devices.first[:mobile]
+
+					# Delete devices if imei or mobile already exisits.
+					if Device.exists?(:imei => imei) 
+						del_device = Device.where(:imei => imei).first
+						del_device.destroy
+					end
+					if Device.exists?(:mobile => mobile)
+						del_device = Device.where(:imei => imei).first
+						del_device.destroy
+					end
+
+					result = @user.save
+
+					respond_to do |format|
+						if result
+							format.json { render :status => 200,
+	           					   				 :json => { :success => true,
+	                     					  				:info => "Registered",
+	                     					  				:data => @user 
+	                     								  }
+	                      				}
+						else 
+							format.json { render :status => :unprocessable_entity,
+	            				   				 :json => { :success => false,
+	                        				  				:info => @user.errors,
+	                        				  				:data => {} 
+	                        							  }
+	                        			}
+						end
 					end
 				end
+
+				#respond_to do |format|
+				#	format.json { render :status => 200,
+       			#		   				 :json => { :success => true,
+                #  					  				:info => "DeviceAssigned",
+                #   					  				:data => @devices.first[:imei]
+                #   								  }
+                #   				}
+                #end
+	
+
 			end
 
 			def update
@@ -60,7 +129,7 @@ module Api
 
 			private
 			def user_params
-    			params.require(:user).permit(:mobile, :email, :first_name, :last_name, :age, :gender, :home_address, devices_attributes: [:brand, :device_name, :model, :build_id, :product, :imei, :android_id, :sdk_version, :os_release, :os_incremental])
+    			params.require(:user).permit(:email, :first_name, :last_name, :age, :gender, :home_address, devices_attributes: [:mobile, :brand, :device_name, :model, :build_id, :product, :imei, :android_id, :sdk_version, :os_release, :os_incremental])
   			end
 
 		end
