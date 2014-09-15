@@ -50,7 +50,7 @@ body, h1, h2, h3, h4, h5, h6 {
   border-radius: 2px;
 }
 .navbar {
-  background: #e74d14;
+  background: #ffffff;
   padding: 0;
   border: 0;
 }
@@ -61,7 +61,7 @@ body, h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-family: "Simpetico", "gandhi serif", georgia, serif;
   font-style: bold;
-  color: #fff;
+  color: #e74d14;
 }
 .navbar ul.nav li a {
   padding-left: 0;
@@ -70,7 +70,7 @@ body, h1, h2, h3, h4, h5, h6 {
   text-align: center;
   padding-top: 2em;
   font-family: "Simpetico", "gandhi serif", georgia, serif;
-  color: #ffffff;
+  color: #e74d14;
   font-style: bold;
   font-size: 1.3em;
 }
@@ -100,8 +100,8 @@ body, h1, h2, h3, h4, h5, h6 {
 }
 
 .jumbotron {
-  background-color: #e5e5e5;
-  color: #e74d14;
+  background-color: #e74d14;
+  color: #ffffff;
   padding: 6.5em 0 3em;
   text-align: center;
 }
