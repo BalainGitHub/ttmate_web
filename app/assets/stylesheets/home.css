@@ -4,11 +4,26 @@
 
 
 @font-face {
-    font-family: "Sparkler";
-    src: font_url(/assets/Sparkler-demo.ttf);
+    font-family: "glametrixbold";
+    src: url(/assets/GlametrixBold.otf) format('opentype');
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+    font-family: "glametrix";
+    src: url(/assets/Glametrix.otf) format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: "opificio";
+  font-style: normal;
+  font-weight: normal;
+  src: font_url(/assets/Opificio-neue-regular.ttf), font_url(/assets/Opificio-neue-regular.eot);
+}
+
 @font-face {
     font-family: "Simpetico";
     src: font_url(/assets/Simpetico.otf) format('opentype');
@@ -41,27 +56,35 @@
 }
 body {
   font-size: 14px;
+  /* background: #d8d8d8; */
 }
 body, h1, h2, h3, h4, h5, h6 {
-  font-family: "gandhi sans", helvetica, sans-serif;
+  font-family: "glametrix", "gandhi sans", helvetica, sans-serif;
 }
 .btn {
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 2px;
 }
 .navbar {
-  background: #ffffff;
+  background: transparent;
+  /* background: #e74d14; */
   padding: 0;
   border: 0;
 }
+.nav-scroll {
+  /* background: #f8f8f6; */
+  background: #464749;
+}
+
 .navbar .navbar-brand {
   overflow: visible;
-  padding-top: 0.3em;
+  padding-top: 0em;
   padding-bottom: 0.5em;
   margin: 0;
   font-family: "Simpetico", "gandhi serif", georgia, serif;
   font-style: bold;
-  color: #e74d14;
+  /*color: #464749; */
+  color: #d8d8d8;
 }
 .navbar ul.nav li a {
   padding-left: 0;
@@ -70,64 +93,87 @@ body, h1, h2, h3, h4, h5, h6 {
   text-align: center;
   padding-top: 2em;
   font-family: "Simpetico", "gandhi serif", georgia, serif;
-  color: #e74d14;
+  color: #d8d8d8;
+  /* color: #48616E; */
   font-style: bold;
-  font-size: 1.3em;
+  font-size: 1.6em;
 }
 .navbar ul.nav li button {
   margin: 1.6em 0 0 1em;
   font-size: 1.3em;
 }
 
+.navbar ul.nav li a:hover {
+  color: #e74d14;
+}
+.navbar ul.nav li a:focus {
+  color: #e74d14;
+}
 .btn.btn-default {
     color: #ffffff;
-    background-color: #e74c14;
-    background-image: linear-gradient(to bottom, #e94e2b, #cf4412);
-    border-color: #e74c14 #e74c14 #e74c14;
+    background-color: #e74d14;
+    /* background-image: linear-gradient(to bottom, #464749, #464749); */
+    border-color: #e74d14 #e74d14 #e74d14;
 }
 .btn.btn-default:hover {
-    color: #ffffff;
-    background-color: #cf4412;
-    background-image: linear-gradient(to bottom, #cf4412, #cf4412);
-    border-color: #e74c14 #e74c14 #e74c14;
+    color: #e74d14;
+    background-color: transparent;
+    /* background-image: linear-gradient(to bottom, #cf4412, #cf4412); */
+    border-color: #e74d14 #e74d14 #e74d14;
 }
 
 .btn.btn-grey {
   color: #ffffff;
-  background-color: #464749;
-  background-image: linear-gradient(to bottom, #58595b, #3f3f41);
+  background-color: transparent;
+  /* background-image: linear-gradient(to bottom, #58595b, #3f3f41); */
   border-color: #464749 #464749 #464749;
 }
 
 .jumbotron {
-  background-color: #e74d14;
-  color: #ffffff;
-  padding: 4em 0 3em;
-  text-align: center;
+  background-image: url(/assets/Grey-website-background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-color: #464749; 
+  background: transparent; */
+  color: #d8d8d8;
+  padding-top: 4em;
+  padding: 6em 1em 3em;
+  height: 600px;
+  /*height: 26em;
+   text-align: left;*/
+}
+.jumbo-image {
+  padding-top: 20px;
 }
 .jumbotron h1 {
   font-family: "Simpetico", "gandhi serif", georgia, serif;
-  font-size: 3em;
+  font-size: 3.5em;
   font-weight: bold;
-  text-shadow: 1px 1px 3px #000;
+  /* text-shadow: 1px 1px 3px #e5e5e5; */
+  text-shadow: 1px 1px 3px #E95E2B;
+  color: #e74d14;
 }
 .jumbotron h2 {
   font-family: "Simpetico", "gandhi serif", georgia, serif;
-  font-size: 1.2em;
-  font-style: italic;
-  font-weight: bold;
+  font-size: 1.5em;
   line-height: 1.4em;
   margin-bottom: 1.4em;
+  color: #d8d8d8;
+  /* color: #48616E; */
 }
 .jumbotron h3 {
-  font-family: "Simpetico", "gandhi serif", georgia, serif;
+  font-family: "Glametrix", "gandhi serif", georgia, serif;
+  color: #d8d8d8;
+  /* color: #48616E; */
+  font-size: 1.5em;
 }
 .jumbotron .btn {
-  box-shadow: 1px 1px 3px #000;
+  /* box-shadow: 1px 1px 3px #000; */
   font-size: 1.2em;
   font-weight: bold;
-  padding: 0.3em 2.5em 0.5em;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  padding: 0em 0.5em 0em;
+  /* text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); */
+
 }
 .jumbotron .btn .glyphicon {
   margin-left: 0.2em;
@@ -140,12 +186,22 @@ body, h1, h2, h3, h4, h5, h6 {
   margin: 2em 8% 2.4em;
 }
 .subhead {
-  color: #e74d14;
-  font-family: "gandhi serif", georgia, serif;
-  font-size: 3em;
+  color: #464749;
+  font-family: "glametrix", "gandhi serif", georgia, serif;
+  font-size: 4em;
   font-weight: bold;
   text-align: center;
   margin: 0.3em 0;
+}
+.subhead-tag {
+  color: #464749;
+  font-family: "glametrix", "gandhi serif", georgia, serif;
+  font-size: 2.5em;
+  font-weight: bold;
+  text-align: center;
+}
+.content-text {
+  font-size: 1.5em;
 }
 .benefit {
   margin: 0.8em 0;
@@ -157,10 +213,10 @@ body, h1, h2, h3, h4, h5, h6 {
   color: #fff;
   display: inline-block;
   line-height: 1em;
-  padding: 3em;
+  padding: 2em;
 }
 .benefit .benefit-ball .glyphicon {
-  font-size: 4em;
+  font-size: 3.5em;
   position: relative;
   top: -3px;
   right: 1px;
@@ -172,9 +228,34 @@ body, h1, h2, h3, h4, h5, h6 {
   font-size: 2em;
   font-weight: bold;
 }
+.benefit h4 {
+  font-size: 2em;
+  font-weight: bold;
+}
+.benefit p {
+  font-size: 1.5em;
+}
+
+.img-center {
+  display: block;
+  margin: 0 auto;
+}
+
+.img-left {
+  display: block;
+  margin-left: 2em;
+  padding-left: 2em;
+}
+
+.travel-hover {
+  visibility: visible;
+}
+
 #slideshow {
   margin: 0.5em 0 1.5em;
 }
+
+
 #slideshow .carousel-inner img {
   background: #000;
   height: 500px;

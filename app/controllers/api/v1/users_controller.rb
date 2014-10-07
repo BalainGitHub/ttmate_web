@@ -54,7 +54,7 @@ module Api
 							format.json { render :status => 200,
 	           					   				 :json => { :success => true,
 	                     					  				:info => "DeviceAdded",
-	                     					  				:data => @devices
+	                     					  				:data => @user
 	                     								  }
 	                      				}
 						else 

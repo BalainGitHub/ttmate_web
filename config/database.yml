@@ -56,5 +56,5 @@ production:
   encoding: unicode
   database: ttmate_production
   pool: 5
-  username: postgres
+  username: ttmate_prod
   password: postgres
