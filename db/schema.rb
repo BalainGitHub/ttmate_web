@@ -11,10 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140914152651) do
+ActiveRecord::Schema.define(version: 20141009023053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "alarms", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "device_alarm_id"
+    t.string   "alarm_name",      limit: 30
+    t.string   "alarm_type",      limit: 10
+    t.string   "src_loc_latlng",  limit: 60
+    t.string   "dest_loc_latlng", limit: 60
+    t.datetime "start_time"
+    t.string   "trans_mode",      limit: 15
+    t.string   "buddy_mobile",    limit: 20
+    t.integer  "fence_dist"
+    t.integer  "frequency"
+    t.string   "alarm_status",    limit: 15
+    t.datetime "reached_at"
+    t.integer  "dist_travelled"
+    t.float    "avg_speed"
+    t.string   "loc_list",        limit: 250
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "alarms", ["user_id"], name: "index_alarms_on_user_id", using: :btree
 
   create_table "devices", force: true do |t|
     t.string   "brand",          limit: 15

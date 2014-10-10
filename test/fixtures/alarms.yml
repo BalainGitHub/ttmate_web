@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  device_alarm_id: 1
+  alarm_name: MyString
+  alarm_type: MyString
+  src_loc_latlng: MyString
+  dest_loc_latlng: MyString
+  start_time: 2014-10-09 03:30:53
+  trans_mode: MyString
+  buddy_mobile: MyString
+  fence_dist: 1
+  frequency: 1
+  alarm_status: MyString
+  reached_at: 2014-10-09 03:30:53
+  dist_travelled: 1
+  avg_speed: 1.5
+  loc_list: MyString
+
+two:
+  user_id: 1
+  device_alarm_id: 1
+  alarm_name: MyString
+  alarm_type: MyString
+  src_loc_latlng: MyString
+  dest_loc_latlng: MyString
+  start_time: 2014-10-09 03:30:53
+  trans_mode: MyString
+  buddy_mobile: MyString
+  fence_dist: 1
+  frequency: 1
+  alarm_status: MyString
+  reached_at: 2014-10-09 03:30:53
+  dist_travelled: 1
+  avg_speed: 1.5
+  loc_list: MyString

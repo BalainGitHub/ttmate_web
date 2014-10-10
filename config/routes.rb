@@ -13,6 +13,7 @@ TtmateWeb::Application.routes.draw do
       resources :users do
         resources :devices
       end
+      resources :alarms
     end
   end
 
