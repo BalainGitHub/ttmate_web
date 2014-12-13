@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  device_travel_id: 1
+  travel_name: MyString
+  travel_type: MyString
+  travel_from: MyString
+  travel_to: MyString
+  travel_start_time: 2014-12-11 17:54:50
+  travel_mode: MyString
+  travel_buddy_list: MyString
+  travel_msg_freq: 1
+  travel_alarm_distance: 1
+  travel_repeat: MyString
+  travel_alarm_status: MyString
+  travel_status: MyString
+  travel_eta: 2014-12-11 17:54:50
+  travel_next_start_time: 2014-12-11 17:54:50
+  travel_milestone: MyString
+  travel_intimation_list: MyString
+  travel_usage: 1
+
+two:
+  user_id: 1
+  device_travel_id: 1
+  travel_name: MyString
+  travel_type: MyString
+  travel_from: MyString
+  travel_to: MyString
+  travel_start_time: 2014-12-11 17:54:50
+  travel_mode: MyString
+  travel_buddy_list: MyString
+  travel_msg_freq: 1
+  travel_alarm_distance: 1
+  travel_repeat: MyString
+  travel_alarm_status: MyString
+  travel_status: MyString
+  travel_eta: 2014-12-11 17:54:50
+  travel_next_start_time: 2014-12-11 17:54:50
+  travel_milestone: MyString
+  travel_intimation_list: MyString
+  travel_usage: 1

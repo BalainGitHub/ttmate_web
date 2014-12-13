@@ -28,8 +28,6 @@ module Api
 				# Check if user exists and active
 				if User.exists?(:email => @user[:email])
 
-					#@avl_user = User.find(:email => @user[:email])
-
 					@devices = @user.devices.build(user_params[:devices_attributes])
 					imei = @devices.first[:imei]
 					mobile = @devices.first[:mobile]
@@ -56,7 +54,8 @@ module Api
 							format.json { render :status => 200,
 	           					   				 :json => { :success => true,
 	                     					  				:info => "DeviceAdded",
-	                     					  				:data => existing_user
+	                     					  				:data => existing_user,
+	                     					  				:device => @devices.first
 	                     								  }
 	                      				}
 						else 
@@ -83,6 +82,7 @@ module Api
 						del_device.destroy
 					end
 
+					@user.status = "Registered"
 					result = @user.save
 
 					respond_to do |format|
@@ -90,7 +90,8 @@ module Api
 							format.json { render :status => 200,
 	           					   				 :json => { :success => true,
 	                     					  				:info => "Registered",
-	                     					  				:data => @user 
+	                     					  				:data => @user,
+	                     					  				:device => @user.devices.first
 	                     								  }
 	                      				}
 						else 

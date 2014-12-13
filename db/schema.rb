@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141009023053) do
+ActiveRecord::Schema.define(version: 20141211175449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,19 +63,47 @@ ActiveRecord::Schema.define(version: 20141009023053) do
 
   add_index "devices", ["mobile"], name: "index_devices_on_mobile", using: :btree
 
+  create_table "travels", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "device_travel_id"
+    t.string   "travel_name"
+    t.string   "travel_type"
+    t.string   "travel_from"
+    t.string   "travel_to"
+    t.datetime "travel_start_time"
+    t.string   "travel_mode"
+    t.string   "travel_buddy_list"
+    t.integer  "travel_msg_freq"
+    t.integer  "travel_alarm_distance"
+    t.string   "travel_repeat"
+    t.string   "travel_alarm_status"
+    t.string   "travel_status"
+    t.datetime "travel_eta"
+    t.datetime "travel_next_start_time"
+    t.string   "travel_milestone"
+    t.string   "travel_intimation_list"
+    t.integer  "travel_usage"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "travels", ["user_id"], name: "index_travels_on_user_id", using: :btree
+
   create_table "users", force: true do |t|
-    t.string   "email",        limit: 30
-    t.string   "first_name",   limit: 20
-    t.string   "last_name",    limit: 20
+    t.string   "email",            limit: 30
+    t.string   "first_name",       limit: 20
+    t.string   "last_name",        limit: 20
     t.integer  "age"
-    t.string   "gender",       limit: 12
+    t.string   "gender",           limit: 12
     t.text     "home_address"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "other_ids_1",  limit: 40
-    t.string   "other_ids_2",  limit: 40
-    t.string   "other_ids_3",  limit: 40
-    t.string   "status",       limit: 12
+    t.string   "other_ids_1",      limit: 40
+    t.string   "other_ids_2",      limit: 40
+    t.string   "other_ids_3",      limit: 40
+    t.string   "status",           limit: 12
+    t.integer  "settings_app_ver"
+    t.integer  "settings_web_ver"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
