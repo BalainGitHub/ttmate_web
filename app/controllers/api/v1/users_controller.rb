@@ -118,7 +118,29 @@ module Api
 			end
 
 			def update
-				respond_with User.update(params[:id], params[:user])
+				## respond_with User.update(params[:id], params[:user])
+				@user = User.find(params[:id])
+
+				result = @user.update_attributes(:first_name => user_params[:first_name], :last_name => user_params[:last_name], :age => user_params[:age], :gender => user_params[:gender], :user_gcm_id => user_params[:user_gcm_id], :devices_attributes => user_params[:devices_attributes])
+
+				respond_to do |format|
+					if result
+						format.json { render :status => 200,
+           					   				 :json => { :success => true,
+                     					  				:info => "UserUpdated",
+                     					  				:data => @user,
+                     					  				:device => @user.devices.first
+                     								  }
+                      				}
+					else 
+						format.json { render :status => :unprocessable_entity,
+            				   				 :json => { :success => false,
+                        				  				:info => @user.errors,
+                        				  				:data => {} 
+                        							  }
+                        			}
+					end
+				end
 			end
 
 			def destroy
@@ -132,7 +154,7 @@ module Api
 
 			private
 			def user_params
-    			params.require(:user).permit(:email, :first_name, :last_name, :age, :gender, :home_address, devices_attributes: [:mobile, :brand, :device_name, :model, :build_id, :product, :imei, :android_id, :sdk_version, :os_release, :os_incremental])
+    			params.require(:user).permit(:email, :first_name, :last_name, :age, :gender, :home_address, :user_gcm_id, devices_attributes: [:mobile, :brand, :device_name, :model, :build_id, :product, :imei, :android_id, :sdk_version, :os_release, :os_incremental])
   			end
 
 		end

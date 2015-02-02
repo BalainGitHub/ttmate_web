@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141211175449) do
+ActiveRecord::Schema.define(version: 20150202100935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 20141211175449) do
     t.text     "home_address"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "other_ids_1",      limit: 40
+    t.string   "user_gcm_id"
     t.string   "other_ids_2",      limit: 40
     t.string   "other_ids_3",      limit: 40
     t.string   "status",           limit: 12

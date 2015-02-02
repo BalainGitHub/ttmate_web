@@ -17,7 +17,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: ttmate_dev
+  database: ttmate_production
   pool: 5
   username: postgres
   password: postgres
