@@ -14,6 +14,8 @@ TtmateWeb::Application.routes.draw do
         resources :devices
       end
       resources :travels
+
+      match "/devices/search/:mobile" => "devices#mobile_search", via: :get, as: :mobile_search
     end
   end
 
