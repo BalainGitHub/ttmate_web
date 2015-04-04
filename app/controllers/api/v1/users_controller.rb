@@ -154,7 +154,7 @@ module Api
 
 			private
 			def user_params
-    			params.require(:user).permit(:email, :first_name, :last_name, :age, :gender, :home_address, :user_gcm_id, devices_attributes: [:mobile, :brand, :device_name, :model, :build_id, :product, :imei, :android_id, :sdk_version, :os_release, :os_incremental, :country_code])
+    			params.require(:user).permit(:email, :first_name, :last_name, :age, :gender, :home_address, :user_gcm_id, :country_code, devices_attributes: [:mobile, :brand, :device_name, :model, :build_id, :product, :imei, :android_id, :sdk_version, :os_release, :os_incremental])
   			end
 
 		end

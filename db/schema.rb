@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150404085219) do
+ActiveRecord::Schema.define(version: 20150404173455) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 20150404085219) do
     t.string   "travel_status"
     t.datetime "travel_eta"
     t.datetime "travel_next_start_time"
-    t.string   "travel_milestone"
+    t.text     "travel_milestone"
     t.string   "travel_intimation_list"
     t.integer  "travel_usage"
     t.datetime "created_at"
