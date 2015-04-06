@@ -1,3 +1,5 @@
+require 'gcm'
+
 module Api
 	module V1
 		class TravelsController < ApplicationController
@@ -18,8 +20,56 @@ module Api
 
 			def create
 				@travel = Travel.new(travel_params)
-
 				result = @travel.save
+
+				logger.debug "GCM Saved Travel: #{@travel.inspect}"
+				#travel = @travel[0]
+				#logger.debug "GCM Extracted Travel: #{travel.inspect}"
+
+				if @travel[:travel_buddy_list].length > 0
+
+					gcm = GCM.new("AIzaSyDFgUeHwZ67R5JbpJI9LC7vQdVC7pJ1zY8")
+					registration_ids = Array.new
+					logger.debug "GCM New Regn Ids: #{registration_ids.inspect}"
+
+					buddy_nums = @travel[:travel_buddy_list].split(/,/)
+					logger.debug "GCM Buddy Nums: #{buddy_nums.inspect}"
+					buddy_nums.each do |bd_num|
+						if bd_num.match(/^\+/)
+						else
+							user = User.find(bd_num)
+							regn_id = user.user_gcm_id
+							registration_ids << regn_id
+							logger.debug "GCM Regn Ids: #{registration_ids.inspect}"
+						end
+					end
+
+					if registration_ids.length > 0
+						track_notice = Hash.new
+
+						track_notice[:track_travel_name] = @travel.travel_name
+						track_notice[:track_notice_web_id] = "0"
+						track_notice[:track_notice_type] = "1"
+						track_notice[:track_type_id] = "0"
+						track_notice[:buddy_web_id] = @travel.user_id
+						track_notice[:travel_web_id] = @travel.id
+						track_notice[:track_notice_method] = "0"
+						track_notice[:track_milestone] = @travel.travel_milestone
+						track_notice[:track_from] = @travel.travel_from
+						track_notice[:track_to] = @travel.travel_to
+						track_notice[:track_notice_status] = "New"
+						track_notice[:track_travel_start_time] = travel_params[:travel_start_time];
+
+						options = {data: track_notice }
+
+						logger.debug "GCM Regn Ids: #{registration_ids.inspect}"
+						logger.debug "GCM Options: #{options.inspect}"
+
+						response = gcm.send(registration_ids, options)
+						logger.debug "GCM Response: #{response.inspect}"
+
+					end
+				end
 
 				respond_to do |format|
 					if result
@@ -44,6 +94,52 @@ module Api
 			def update
 				@travel = Travel.find(params[:id])
 				result = @travel.update_attributes(travel_params)
+
+				if @travel[:travel_buddy_list].length > 0
+
+					gcm = GCM.new("AIzaSyDFgUeHwZ67R5JbpJI9LC7vQdVC7pJ1zY8")
+					registration_ids = Array.new
+					logger.debug "GCM New Regn Ids: #{registration_ids.inspect}"
+
+					buddy_nums = @travel[:travel_buddy_list].split(/,/)
+					logger.debug "GCM Buddy Nums: #{buddy_nums.inspect}"
+					buddy_nums.each do |bd_num|
+						if bd_num.match(/^\+/)
+						else
+							user = User.find(bd_num)
+							regn_id = user.user_gcm_id
+							registration_ids << regn_id
+							logger.debug "GCM Regn Ids: #{registration_ids.inspect}"
+						end
+					end
+
+					if registration_ids.length > 0
+						track_notice = Hash.new
+
+						#track_notice[:track_travel_name] = @travel.travel_name
+						#track_notice[:track_notice_web_id] = "0"
+						#track_notice[:track_notice_type] = "1"
+						#track_notice[:track_type_id] = "0"
+						track_notice[:buddy_web_id] = @travel.user_id
+						track_notice[:travel_web_id] = @travel.id
+						track_notice[:track_notice_method] = "0"
+						milestone = @travel.travel_milestone.split(/;/)
+						track_notice[:track_milestone] = milestone[-1]
+						#track_notice[:track_from] = @travel.travel_from
+						#track_notice[:track_to] = @travel.travel_to
+						track_notice[:track_notice_status] = @travel.travel_status
+						#track_notice[:track_travel_start_time] = travel_params[:travel_start_time];
+
+						options = {data: track_notice }
+
+						logger.debug "GCM Regn Ids: #{registration_ids.inspect}"
+						logger.debug "GCM Options: #{options.inspect}"
+
+						response = gcm.send(registration_ids, options)
+						logger.debug "GCM Response: #{response.inspect}"
+
+					end
+				end
 
 				respond_to do |format|
 					if result
