@@ -33,20 +33,36 @@ module Api
 						logger.debug "GCM Regn Ids: #{registration_ids.inspect}"
 						logger.debug "GCM Options: #{options.inspect}"
 
-						gcm_response = gcm.send(registration_ids, options)
+						response = gcm.send(registration_ids, options)
+						response_body = response[:body]
+						success = response_body.split(/,/)[1].split(/:/)[1]
+						failure = response_body.split(/,/)[2].split(/:/)[1]
+
+						gcm_response = Hash.new
+						gcm_response[:success] = success
+						gcm_response[:failure] = failure
+
 						logger.debug "GCM Response: #{gcm_response.inspect}"
 
 					end
 				end
 
 				respond_to do |format|
-					format.json { render :status => 200,
-       					   				 :json => { :success => true,
-                 					  				:info => "PlaceShared",
-                 					  				:data => shareParams,
-                 					  				:gcm_response => gcm_response
-                 								  }
-                  				}
+					if success == "1"
+						format.json { render :status => 200,
+	       					   				 :json => { :success => true,
+	                 					  				:info => "PlaceShared",
+	                 					  				:data => gcm_response
+	                 								  }
+	                  				}
+	                else 
+	                	format.json { render :status => 200,
+	       					   				 :json => { :success => false,
+	                 					  				:info => "PlaceShareFailed",
+	                 					  				:data => gcm_response
+	                 								  }
+	                  				}
+	                end
 				end
  			end
 		end

@@ -117,6 +117,7 @@ module Api
 					if registration_ids.length > 0
 						track_notice = Hash.new
 
+						track_notice[:data_type] = "track_notice"
 						#track_notice[:track_travel_name] = @travel.travel_name
 						#track_notice[:track_notice_web_id] = "0"
 						#track_notice[:track_notice_type] = "1"
