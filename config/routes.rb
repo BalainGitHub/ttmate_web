@@ -16,6 +16,8 @@ TtmateWeb::Application.routes.draw do
       resources :travels
 
       match "/devices/search/:mobile" => "devices#mobile_search", via: :get, as: :mobile_search
+
+      match "/app_requests/share_location" => "app_requests#share_location", via: :post
     end
   end
 
