@@ -13,6 +13,13 @@ module Api
 				respond_with Device.find_by_mobile(params[:mobile])
 			end
 
+			def multi_mobile_search
+				mobiles = params[:mobile_list].split(/,/)
+				@devices = Device.where(:mobile => mobiles)
+
+				respond_with @devices
+			end
+
 			
 		end
 	end

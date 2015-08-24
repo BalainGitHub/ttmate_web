@@ -3,4 +3,7 @@
 
 require File.expand_path('../config/application', __FILE__)
 
+# # load sneakers tasks
+# require 'sneakers/tasks'
+
 TtmateWeb::Application.load_tasks

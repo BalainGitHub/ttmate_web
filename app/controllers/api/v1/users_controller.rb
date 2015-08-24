@@ -24,30 +24,39 @@ module Api
 			def create
 				@user = User.new(user_params)
 
+				app_set_max_id = AppSetting.maximum(:id)
+				@app_setting = AppSetting.find(app_set_max_id)
+
 				#===========================================
 				# Check if user exists and active
 				if User.exists?(:email => @user[:email])
 
+					existing_user = User.where(:email => @user[:email]).first
+					# existing_user.app_settings_id = app_set_max_id
+					existing_user.update_attribute(:app_settings_id, app_set_max_id)
+
 					@devices = @user.devices.build(user_params[:devices_attributes])
 					imei = @devices.first[:imei]
 					mobile = @devices.first[:mobile]
+					@devices.first[:user_id] = existing_user.id
+					logger.debug "New user - User Exists: @devices: #{@devices.inspect}"
 
 					# Delete devices if imei or mobile already exisits.
-					if Device.exists?(:imei => imei)
-						del_device = Device.where(:imei => imei).first
-						del_device.destroy
-					end
 					if Device.exists?(:mobile => mobile)
-						del_device = Device.where(:mobile => mobile).first
-						del_device.destroy
+						avl_device = Device.where(:mobile => mobile).first
+						logger.debug "New user - User Exists-Device Exists: Devices Attributes: #{user_params[:devices_attributes][0].inspect}"
+						devices_result = avl_device.update_attributes(user_params[:devices_attributes][0])
+						avl_device[:user_id] = existing_user.id
+						# devices_result = avl_device.save
+						logger.debug "New user - User Exists-Device Exists: avl_device: #{avl_device.inspect}"
+					else
+						# Save only the device.
+						avl_device = @devices.first
+						devices_result = avl_device.save
+
+						logger.debug "New user - User Exists-Device Not Exists: avl_device: #{avl_device.inspect}"
+
 					end
-
-					# Assign esisting user id to device user id.
-					existing_user = User.where(:email => @user[:email]).first
-					@devices.first[:user_id] = existing_user.id
-
-					# Save only the device.
-					devices_result = @devices.first.save
 
 					respond_to do |format|
 						if devices_result
@@ -55,13 +64,14 @@ module Api
 	           					   				 :json => { :success => true,
 	                     					  				:info => "DeviceAdded",
 	                     					  				:data => existing_user,
-	                     					  				:device => @devices.first
+	                     					  				:device => avl_device,
+	                     					  				:app_setting => @app_setting
 	                     								  }
 	                      				}
 						else 
 							format.json { render :status => :unprocessable_entity,
 	            				   				 :json => { :success => false,
-	                        				  				:info => @device.errors,
+	                        				  				:info => avl_device.errors,
 	                        				  				:data => {} 
 	                        							  }
 	                        			}
@@ -83,6 +93,8 @@ module Api
 					end
 
 					@user.status = "Registered"
+					@user.app_settings_id = app_set_max_id
+
 					result = @user.save
 
 					respond_to do |format|
@@ -91,7 +103,8 @@ module Api
 	           					   				 :json => { :success => true,
 	                     					  				:info => "Registered",
 	                     					  				:data => @user,
-	                     					  				:device => @user.devices.first
+	                     					  				:device => @user.devices.first,
+	                     					  				:app_setting => @app_setting
 	                     								  }
 	                      				}
 						else 
@@ -154,7 +167,9 @@ module Api
 
 			private
 			def user_params
-    			params.require(:user).permit(:email, :first_name, :last_name, :age, :gender, :home_address, :user_gcm_id, :country_code, devices_attributes: [:mobile, :brand, :device_name, :model, :build_id, :product, :imei, :android_id, :sdk_version, :os_release, :os_incremental])
+    			params.require(:user).permit(:email, :first_name, :last_name, :age, :gender, :home_address, :user_gcm_id, :country_code, 
+    										 devices_attributes: [:mobile, :brand, :device_name, :model, :build_id, :product, :imei, :android_id, :sdk_version, :os_release, :os_incremental],
+    										 app_setting_attributes: [:id, :version, :setting_data])
   			end
 
 		end

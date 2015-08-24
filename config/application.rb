@@ -22,5 +22,8 @@ module TtmateWeb
 
     # Add lib files 
     config.autoload_paths += Dir["#{config.root}/lib"]
+
+    # # Add lib files 
+    # config.autoload_paths += %W(#{Rails.root}/app/workers)
   end
 end

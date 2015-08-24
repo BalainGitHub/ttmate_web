@@ -32,6 +32,17 @@ gem 'gcm'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# Gem for RabbitMQ Client
+# gem 'bunny'
+
+# Gem for background jobs
+# gem 'sneakers'
+
+# Gems for AMQP 
+gem 'eventmachine'
+gem 'amqp'
+
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

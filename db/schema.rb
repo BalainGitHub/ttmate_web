@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150404173455) do
+ActiveRecord::Schema.define(version: 20150601061809) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,13 @@ ActiveRecord::Schema.define(version: 20150404173455) do
   end
 
   add_index "alarms", ["user_id"], name: "index_alarms_on_user_id", using: :btree
+
+  create_table "app_settings", force: true do |t|
+    t.string   "version"
+    t.text     "setting_data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "devices", force: true do |t|
     t.string   "brand",          limit: 15
@@ -105,6 +112,7 @@ ActiveRecord::Schema.define(version: 20150404173455) do
     t.integer  "settings_app_ver"
     t.integer  "settings_web_ver"
     t.string   "country_code"
+    t.integer  "app_settings_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
