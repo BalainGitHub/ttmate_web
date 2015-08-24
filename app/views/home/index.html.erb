@@ -1,493 +1,368 @@
-<!-- <div class="container"> -->
-  <!-- <img src="assets/jumbo_back_sil.png" alt=""> -->
-  <nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#top">
-              <img style="float:left" class="img-responsive pull-left" src="/assets/traveltmate_logo_wh.png"></img>
-              <!-- <img style="float:left" class="img-responsive pull-left" src="/assets/traveltmatefullor.png"></img> -->
-            </a>
-          </div> <!-- /.navbar-header -->
+<!doctype html>
+<!--[if lt IE 7]><html lang="en" class="no-js ie6"><![endif]-->
+<!--[if IE 7]><html lang="en" class="no-js ie7"><![endif]-->
+<!--[if IE 8]><html lang="en" class="no-js ie8"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
 
-          <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul id="menu" class="nav navbar-nav navbar-right">
-              <!-- <li><a href="#benefits" class="nav-link">benefits</a></li> -->
-              <li><a href="#about" class="nav-link">about</a></li>
-              <li><a href="#features" class="nav-link">features</a></li>
-              <li><a href="#how" class="nav-link">how it works?</a></li>
-              <li><a href="#contact">contact us</a></li>
-              <!-- <li><button class="btn btn-default navbar-btn">Sign Up</button></li> -->
-            </ul>
-          </div> <!-- /.navbar-collapse -->
-        </div> <!-- /.container -->
-  </nav> <!-- /.navbar -->
+<head>
+    <meta charset="UTF-8">
+    <title>kAT app - Travel Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <%= csrf_meta_tag %>
+    <%= javascript_tag "var AUTH_TOKEN = '#{form_authenticity_token}';" if protect_against_forgery? %>
+    <link rel="shortcut icon" href="favicon.ico">
 
-  <div id="top" class="jumbotron">
-    <div class="container">
-      <div class="row">
-          <div class="col-lg-4 col-md-6 hidden-sm hidden-xs center-block img-responsive">
-            <img class="jumbo-image img-responsive" src="assets/SplashScreenshot.png" alt="">
-          </div><!-- /col-lg-6 -->
+    <!--[if IE]><script type="text/javascript" src="javascripts/excanvas.compiled.js"></script><![endif]-->
 
-          <div class="col-lg-8 col-md-6">
-            <h1>travel<i>T</i>mate</h1>
-            <h2>an ul<i>T</i>mate app to in<i>T</i>mate.</h2>
-            <br>
-            <h3>automate your regular intimations to buddies when you travel.</h3>
-            <h3>set up wake up alarms based on location / place.</h3>
-				  <!-- <p><a class="btn btn-default btn-xs">Find out more</a></p> --> <!--<span class="glyphicon glyphicon-hand-right"></span></a></p> -->
-            <br>
-            <br>
-          </div> <!-- /.col-lg-6 -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-        </div> <!-- /.row -->
-    </div> <!-- /.container -->
-  </div> <!-- /.jumbotron -->
-<!-- </div> -->
+</head>
 
-<!-- <div class="container">  -->
+<body>
 
-  <!-- *************** about ************************ -->
-  <div id="about-container">
-  <h3 id="about" class="subhead">about</h3>
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2 content-text">
-          <p class="text-justify">Have you ever wished if your mobile could periodically share your location to your close friends / family?</p>
-		  <p class="text-justify">When you are out of station on a business tour, or roaming around with your friends, it becomes an overhead and also a commitment to keep your closed ones updated on your whereabouts. </p>
-          <p class="text-justify"><b>travelTmate</b>, is primarily designed for tension free travel (both for you and your dear ones). It can notify your buddies through SMS, you can share your location to anyone irrespective of the kind and type of mobile they use. You can also setup wake-up alarms not based on time, but based on places.</p>
-		  
-          <p class="text-justify"><b>Does it cost?</b> travelTmate is absolutely free and will be available soon in google play store. However the carrier cost of SMS that travelTmate sends from your mobile is borne by you. </p>
-      </div> <!-- /.col-md-9 -->
-      <div class="col-md-2"></div>
-     </div> <!-- /.row -->
-
-     <br>
-
-  </div> <!-- /.about-container -->
-
-
-<!-- *************** Features ************************ -->
-  <div id="features-container">
-    <h3 id="features" class="subhead">features</h3>
-
-    <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-4">
-        <p class="feature-sub-head">For Traveller</p>
-      </div>
-      <div class="col-md-2"></div>
-      <div class="col-md-4">
-        <p class="feature-sub-head">For Buddy</p>
-      </div>
-      <div class="col-md-1"></div>
-
-
+    <div class="pre-loader">
+        <div class="load-con">
+            <img src="/assets/logo.png" class="animated fadeInDown" alt="">
+            <div class="spinner">
+              <div class="bounce1"></div>
+              <div class="bounce2"></div>
+              <div class="bounce3"></div>
+            </div>
+        </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-1"></div>
+    <!-- Wrap all page content here -->
+    <div id="wrap">
 
-      <div class="panel-group col-md-4" id="accordion-left">
-        <div class="panel panel-default">
-          <div class="panel-heading accordion-toggle">
-            <h4 class="panel-title">
-              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-left" href="#collapseOne">
-                <span class="glyphicon glyphicon-plus"></span>
-                Location based alarms
-              </a>
-            </h4>
-          </div>
-          <div id="collapseOne" class="panel-collapse collapse">
-            <div class="panel-body">
-              <p class="feature-bene-head">Helps you get good sleep</p>
-              <p>Set up alarm based on location and wake up at the right time before your destination.</p>
+        <header class="masthead">
+            <div class="slider-container" id="slider">
+                <div class="container">
+                    <div class="row mh-container">
+                        <h1><span>kAT </span>- Travel tracker app</h1>
+                        <h3>Knowing location is bliss</h3>
+                        <br>
+                        <div class="col-md-4 col-md-push-4">
+                            <div>
+                                <a href="#" class="btn btn-default">Download now!</a>
+                            </div>
+                        </div>
+                        <div class="col-md-10 col-md-push-1 hidden-xs mh-slider">
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                    <div id="carousel-slider" class="carousel slide" data-ride="carousel">
+
+                                        <!-- Wrapper for slides -->
+                                        <div class="carousel-inner">
+                                            <div class="item active">
+                                                <img src="/assets/travel_tracker.png" alt="travel tracker" class="img-responsive">
+                                            </div>                                            
+                                            <div class="item">
+                                                <img src="/assets/when_to_use_location_messenger.png" alt="location messenger" class="img-responsive">
+                                            </div>
+                                            <div class="item">
+                                                <img src="/assets/emergency_app.png" alt="emergency app" class="img-responsive">
+                                            </div>
+                                        </div>
+
+                                        <!-- Controls -->
+                                        <a class="left carousel-control" href="#carousel-slider" role="button" data-slide="prev">
+                                            <span class="slider-left"></span>
+                                        </a>
+                                        <a class="right carousel-control" href="#carousel-slider" role="button" data-slide="next">
+                                            <span class="slider-right"></span>
+                                        </a>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">
-              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-left" href="#collapseTwo">
-                <span class="glyphicon glyphicon-plus"></span> 
-                Works with just data connectivity
-              </a>
-            </h4>
-          </div>
-          <div id="collapseTwo" class="panel-collapse collapse">
-            <div class="panel-body">
-              <p class="feature-bene-head">Save battery when you travel</p>
-              <p>travelTmate works well with just a data connectivity. It does not require greedy GPS to function.</p>
+
+            <!-- Fixed navbar -->
+            <div class="navbar navbar-static-top" id="nav" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <i class="fa fa-align-justify"></i>
+                        </button>
+                        <a class="navbar-brand" href="#">
+                            <img src="/assets/logo.png" alt="">
+                        </a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <!-- <ul class="nav navbar-nav social hidden-xs hidden-sm">
+                            <li><a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter fa-lg fa-fw"></i></a></li>
+                            <li><a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest fa-lg fa-fw"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin fa-lg fa-fw"></i></a></li>
+                        </ul> -->
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="active"><a href="#slider">Home</a></li>
+                            <li><a href="#about">about</a></li>
+                            <li><a href="#features">features</a></li>
+                            <li><a href="#howitworks">how kAT works?</a></li>
+                            <li><a href="#contact">contact</a></li>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!--/.container -->
             </div>
-          </div>
-        </div>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">
-              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-left" href="#collapseThree">
-                <span class="glyphicon glyphicon-plus"></span> 
-                Reschedule alarms
-              </a>
-            </h4>
-          </div>
-          <div id="collapseThree" class="panel-collapse collapse">
-            <div class="panel-body">
-              <p class="feature-bene-head">Save time for a routine travel</p>
-              <p>Save time by scheduling a repetitive alarm which can run at pre scheduled timings. Hence no need to create an alarm everytime you go to work / college.</p>
+            <!--/.navbar -->
+            
+        </header>
+
+        <section id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-push-1">
+                        <div class="section-heading scrollpoint sp-effect3">
+                            <h1>about</h1>
+                            <span class="divider"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <p>
+                                Have you ever wished if your mobile could periodically share your location to your close friends / family?
+                                <br>
+                                <br>
+                                When you are out of station on a business tour, or roaming around with your friends, or regularly commuting to office it becomes an overhead and also a commitment to keep your closed ones updated on your whereabouts.
+                                <br>
+                                <br>
+                                <b>kAT</b>, is designed for tension free travel (both for you and your dear ones). It can notify your location to your buddies regularly, you can share your location to anyone irrespective of the kind and type of mobile they use. You can also setup wake-up alarms not based on time, but based on places and many more...
+                            </p>
+                        </div>
+
+                        <div class="col-md-6">
+                            <iframe width="420" height="315" src="http://www.youtube.com/embed/fwDRLq__xuA?autoplay=0">
+                            </iframe>
+                        </div>
+                    </div>
+                    
+                 </div>
             </div>
-          </div>
-        </div>
-        
-      </div> <!-- /.panel-group -->
+        </section>
 
-      <div class="col-md-2"></div>
+        <section id="features">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-push-2 clearfix">
+                        <div class="section-heading scrollpoint sp-effect3">
+                            <h1><span> features</span></h1>
+                            <span class="divider"></span>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <div class="row">
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="feature scrollpoint sp-effect2">
+                                                <div class="icon">
+                                                    <i class="fa fa-bell-o fa-4x"></i>
+                                                </div>
+                                                <h4><b>Location Alarm</b></h4>
+                                                <p>Set up alarm based on location and wake up at the right time before your destination.</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="feature scrollpoint sp-effect2">
+                                                <div class="icon">
+                                                    <i class="fa fa-bullhorn fa-4x"></i>
+                                                </div>
+                                                <h4><b>Auto Emergency Alert</b></h4>
+                                                <p>Emergency? be alert, or alert your buddy.</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="feature scrollpoint sp-effect2">
+                                                <div class="icon">
+                                                    <i class="fa fa-comments-o fa-4x"></i>
+                                                </div>
+                                                <h4><b>Messenger or SMS?</b></h4>
+                                                <p>kAT to kAT users is FREE, share more.<br>kAT to others, pay ur normal SMS charges to operator. Not us!</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="feature scrollpoint sp-effect1">
+                                                <div class="icon">
+                                                    <i class="fa fa-money fa-4x"></i>
+                                                </div>
+                                                <h4><b>Free</b></h4>
+                                                <p>Download kAT for free. Available only in Android Play Store.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="row">
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="feature scrollpoint sp-effect1">
+                                                <div class="icon">
+                                                    <i class="fa fa-share-alt fa-4x"></i>
+                                                </div>
+                                                <h4><b>Share my location</b></h4>
+                                                <p>Share your location and not address to your buddies.</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="feature scrollpoint sp-effect2">
+                                                <div class="icon">
+                                                    <i class="fa fa-rocket fa-4x"></i>
+                                                </div>
+                                                <h4><b>Routine Travel?</b></h4>
+                                                <p>Routine travel to work? Set once and track ever.</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="feature scrollpoint sp-effect1">
+                                                <div class="icon">
+                                                    <i class="fa fa-clock-o fa-4x"></i>
+                                                </div>
+                                                <h4><b>Regular Updates</b></h4>
+                                                <p>Regular location intimation, helps buddies to pick up / meet at the right time.</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="feature scrollpoint sp-effect1">
+                                                <div class="icon">
+                                                    <i class="fa fa-lock fa-4x"></i>
+                                                </div>
+                                                <h4><b>Absolutely safe to use!</b></h4>
+                                                <p>Share your location to the buddy you wish to share.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                            </ol>
+                        </div>
 
-      <div class="panel-group col-md-4" id="accordion-right">
-        
-        <div class="panel panel-default">
-          <div class="panel-heading accordion-toggle">
-            <h4 class="panel-title">
-              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-right" href="#collapseFour">
-                <span class="glyphicon glyphicon-plus"></span>
-                Receive periodical location intimation
-              </a>
-            </h4>
-          </div>
-          <div id="collapseFour" class="panel-collapse collapse">
-            <div class="panel-body">
-              <p class="feature-bene-head">Keep your buddies informed</p>
-              <p>Regular location intimation, helps buddies to pick up / meet at the right time.</p>
+                    </div>
+                </div>
+            </div>     
+        </section>
+
+        <section id="howitworks">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-push-2 clearfix">
+                        <div class="section-heading scrollpoint sp-effect3">
+                            <h1><span></span> how it works?</h1>
+                            <span class="divider"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-10 col-md-push-1 hidden-xs">
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
+                            <div id="carousel-slider" class="carousel slide" data-ride="carousel">
+
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner">
+                                    <div class="item active">
+                                        <h2>Travel Tracker</h2>
+                                        <img src="/assets/travel_tracker_complete_or.png" alt="travel tracker" class="img-responsive">
+                                    </div>                                            
+                                    <div class="item">
+                                        <h2>Emergency</h2>
+                                        <img src="/assets/travel_emergency_complete_or.png" alt="emergency alert" class="img-responsive">
+                                    </div>
+                                    <div class="item">
+                                        <h2>Share Location</h2>
+                                        <img src="/assets/share_place_complete_or.png" alt="location sharing" class="img-responsive">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+                </div>
+                
             </div>
-          </div>
-        </div>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">
-              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-right" href="#collapseFive">
-                <span class="glyphicon glyphicon-plus"></span> 
-                Intimation via SMS
-              </a>
-            </h4>
-          </div>
-          <div id="collapseFive" class="panel-collapse collapse">
-            <div class="panel-body">
-              <p class="feature-bene-head">Buddy does not need a smartphone</p>
-              <p>Location intimations can be sent via SMS, hence no need for the buddy to have a smart phone or travelTmate installed.</p>
+        </section>
+
+        <footer id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-push-2 clearfix">
+                        <div class="section-heading scrollpoint sp-effect3">
+                            <h1><span> get in touch</span></h1>
+                            <span class="divider"></span>
+                            <p>Share your feedback with us.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">     
+                        <form role="form">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6 spirat">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Your Name" id="feedback_name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 spirat">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Your Email" id="feedback_email">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Your Message" id="feedback_message">
+                                    <span class="input-group-btn">
+                                        <button class="btn" type="button" id="feedback-submit">submit your message</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="social">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-google-plus fa-lg"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter fa-lg"></i></a></li>
+                                <li><a href="#"><i class="fa fa-facebook fa-lg"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        
-      </div> <!-- /.panel-group -->
-
-      <div class="col-md-1"></div>
-
-      
-    </div> <!-- /.row -->
-    <br>
-    <br>
-  </div> <!-- /.feature-container -->
-
-<!-- *************** How it works? ************************ -->
-  <div id="how-container">
-
-    <h3 id="how" class="subhead">how it works?</h3>
-
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2 content-text">
-        <p class="text-justify">Click on panels to learn more about travelTmate</p>
-        <br>
-      </div>
-    </div> <!-- /.row for subhead -->
-
-    <div class="row" >
-      <div class="col-md-2"></div>
-
-      <div class="col-md-2">
-        <img id="plan-travel" class="img-center center-block img-responsive" src="/assets/howto-plan-a-travel-final.png">
-        <img id="travel-down" class="img-center center-block img-responsive hidden" src="/assets/down_arrow.png">
-      </div>
-      
-      <div class="col-md-1">
-        <img class="center-block img-responsive" src="/assets/next_arrow.png">
-      </div>
-      
-      <div class="col-md-2">
-        <img id="reg-intimation" class="img-center center-block img-responsive" src="/assets/howto-regular-intimation-final.png"2>
-        <img id="intimation-down" class="img-center center-block img-responsive hidden" src="/assets/down_arrow.png">
-      </div>
-
-      <div class="col-md-1">
-        <img class="img-center center-block img-responsive" src="/assets/next_arrow.png">
-      </div>
-
-      <div class="col-md-2">
-        <img id="reach-alert" class="img-center center-block img-responsive" src="/assets/howto-alert-on-reach-final.png">
-        <img id="alert-down" class="img-center center-block img-responsive hidden" src="/assets/down_arrow.png">
-      </div>
-
-      <div class="col-md-2"></div>
-
-    </div> <!-- /.row for panel images -->
-    <br>
-
-    <div id="travel-box" class="row hidden">
-
-      <div class="col-md-4 col-md-offset-1 content-text">
-        <ul id="travel-text-slider" class="bxslider">
-          <li>
-            <div class="clearfix">
-              <h1>Create a New Alarm</h1>
-            </div>
-          </li>
-          <li>
-            <div class="clearfix">
-              <h1>Select your start and destination place</h1>
-            </div>
-          </li> 
-		  
-          <li>
-            <div class="clearfix">
-              <h1>Select start time of your travel</h1>
-            </div>
-          </li>
-          <li>
-            <div class="clearfix">
-              <h1>Select buddy to whom you have to intimate</h1>
-            </div>
-          </li>
-          <li>
-            <div class="clearfix">
-              <h1>Set the frequency for intimation</h1>
-            </div>
-          </li>
-        </ul>
-      </div>
-
-      <div class="col-md-6">
-        <ul id="travel-slider" class="bxslider">
-          <li><img src="/assets/NewAlarm.png"/></li>
-          <li><img src="/assets/ListPlaces.png"/></li>
-          <li><img src="/assets/SelectTime.png"/></li>
-          <li><img src="/assets/ListBuddies.png"/></li>
-          <li><img src="/assets/SelectFrequency.png"/></li>
-        </ul>
-      </div>
-
-      <div class="col-md-2"></div>
-
-    </div> <!-- /.row for travel box -->
-
-    <div id="intimation-box" class="row hidden">
-
-      <div class="col-md-4 col-md-offset-1 content-text">
-        <ul id="intimation-text-slider" class="bxslider">
-          <li>
-            <div class="clearfix">
-              <h1>travelTmate polls your current location</h1>
-            </div>
-          </li>
-          <li>
-            <div class="clearfix">
-              <h1>Intimates the buddy through SMS</h1>
-            </div>
-          </li> 
-        </ul>
-      </div>
-
-      <div class="col-md-6">
-        <ul id="intimation-slider" class="bxslider">
-          <li><img src="/assets/ViewAlarmTop.png" /></li>
-          <li><img src="/assets/MessageDetail.png" /></li>
-        </ul>
-      </div>
-
-      <div class="col-md-2"></div>
-
-    </div> <!-- /.row for intimation box -->
-
-    <div id="alert-box" class="row hidden">
-
-      <div class="col-md-4 col-md-offset-1 content-text">
-        <ul id="alert-text-slider" class="bxslider">
-          <li>
-            <div class="clearfix">
-              <h1>Checks whether the destination is reached at every polling</h1>
-            </div>
-          </li>
-          <li>
-            <div class="clearfix">
-              <h1>Initiates alarm once destination is reached</h1>
-            </div>
-          </li>
-          <li>
-            <div class="clearfix">
-              <h1>Sends out destination reached message to your buddy</h1>
-            </div>
-          </li> 
-		  
-        </ul>
-      </div>
-
-      <div  class="col-md-6">
-        <ul id="alert-slider" class="bxslider">
-          <li><img src="/assets/ViewAlarmTop.png" /></li>
-          <li><img src="/assets/InitiateAlarm.png" /></li>
-          <li><img src="/assets/ReachedMessage.png" /></li>
-          <li><img src="/assets/AlarmCompleted.png" /></li>
-        </ul>
-      </div>
-
-      <div class="col-md-2"></div>
-
-    </div> <!-- /.row for alert box -->
-
-  </div> <!-- /.how-container -->
-
-<!-- *************** Contact Us ************************ -->
-  <div id="contact-container">
-
-    <h3 id="contact" class="subhead">contact us</h3>
-    <h4 class="subhead-tag">Write to me, Balasubramanian @ bala.arun@gmail.com.</h4>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-  </div>
+        </footer>
+    </div>
 
 
-  <script>
+    <script src="/assets/script.js"></script>
+    <script>
+        $(document).ready(function() {
+            appMaster.preLoader();
+        });
+    </script>
 
-    $(".nav-link").click(function(e) {
-      e.preventDefault();
-      var link = $(this);
-      var href = link.attr("href");
-      $("html,body").animate({scrollTop: $(href).offset().top - 80}, 500);
-      link.closest(".navbar").find(".navbar-toggle:not(.collapsed)").click();
+</body>
 
-    });
-
-    var travelSlider;
-    var intimationSlider;
-    var alertSlider;
-
-    var travelTextSlider;
-    var intimationTextSlider;
-    var alertTextSlider;
-
-
-    $(document).ready(function(){
-      travelSlider = $('#travel-slider').bxSlider({
-        auto: true,
-        autoControls: true,
-        slideWidth: 230,
-        pager: false
-      });
-      intimationSlider = $('#intimation-slider').bxSlider({
-        auto: true,
-        autoControls: true,
-        slideWidth: 230,
-        pager: false
-      });
-      alertSlider = $('#alert-slider').bxSlider({
-        auto: true,
-        autoControls: true,
-        slideWidth: 230,
-        pager: false
-      });
-
-      travelTextSlider = $('#travel-text-slider').bxSlider({
-        auto: true,
-        autoControls: true,
-        pager: false
-      });
-      intimationTextSlider = $('#intimation-text-slider').bxSlider({
-        auto: true,
-        autoControls: true,
-        pager: false
-      });
-      alertTextSlider = $('#alert-text-slider').bxSlider({
-        auto: true,
-        autoControls: true,
-        pager: false
-      });
-
-    });
-
-
-    $('#plan-travel').click(function(e) {
-
-      $('#intimation-down').addClass("hidden");
-      $('#intimation-box').addClass("hidden");
-
-      $('#alert-down').addClass("hidden");
-      $('#alert-box').addClass("hidden");
-       
-      if( $('#travel-down').hasClass("hidden") ){
-        $('#travel-down').removeClass("hidden");
-        $('#travel-box').removeClass("hidden");
-        travelSlider.reloadSlider();
-        travelTextSlider.reloadSlider();
-      } else {
-        $('#travel-down').addClass("hidden");
-        $('#travel-box').addClass("hidden");
-      }
-        
-    });
-
-    $('#reg-intimation').click(function(e) {
-
-      $('#travel-down').addClass("hidden");
-      $('#travel-box').addClass("hidden");
-
-      $('#alert-down').addClass("hidden");
-      $('#alert-box').addClass("hidden");
-
-      if( $('#intimation-down').hasClass("hidden") ){
-        $('#intimation-down').removeClass("hidden");
-        $('#intimation-box').removeClass("hidden");
-        intimationSlider.reloadSlider();
-        intimationTextSlider.reloadSlider();
-      } else {
-        $('#intimation-down').addClass("hidden");
-        $('#intimation-box').addClass("hidden");
-      }
-        
-    });
-
-    $('#reach-alert').click(function(e) {
-      $('#intimation-down').addClass("hidden");
-      $('#intimation-box').addClass("hidden");
-
-      $('#travel-down').addClass("hidden");
-      $('#travel-box').addClass("hidden");
-
-      if( $('#alert-down').hasClass("hidden") ){
-        $('#alert-down').removeClass("hidden");
-        $('#alert-box').removeClass("hidden");
-        alertSlider.reloadSlider();
-        alertTextSlider.reloadSlider();
-      } else {
-        $('#alert-down').addClass("hidden");
-        $('#alert-box').addClass("hidden");
-      }
-      
-    });
-
-    $('.collapse').on('shown.bs.collapse', function(){
-      $(this).parent().find(".glyphicon-plus").removeClass("glyphicon-plus").addClass("glyphicon-minus");
-    }).on('hidden.bs.collapse', function(){
-      $(this).parent().find(".glyphicon-minus").removeClass("glyphicon-minus").addClass("glyphicon-plus");
-    });
-
-
-
-  </script>
-
-
-  
+</html>

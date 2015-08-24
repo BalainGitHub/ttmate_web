@@ -2,7 +2,9 @@ TtmateWeb::Application.routes.draw do
   #get ':controller(/:action(/:id(.:format)))'
   root to: 'home#index'
 
-  get 'downloads' => 'download#show'
+  # get 'downloads' => 'download#show'
+
+  resources :feedbacks
 
   namespace :api, defaults: {format: :json} do
     scope module: :v1, constraints: ApiConstraints.new(version: 1, default: :true) do
