@@ -96,7 +96,7 @@ if defined?(PhusionPassenger) # otherwise it breaks rake commands if you put thi
       end
 
       EventMachine.next_tick do
-        Rails.logger.info "[AMQP] Inside EventMachine for Update Travel..."
+        Rails.logger.info "[AMQP] Inside EventMachine for Refresh Travel..."
         connection = AMQP.connect(connection_setting)
         Rails.logger.info "[AMQP] Connected to AMQP broker. Running #{AMQP::VERSION} version of the gem..."
 
@@ -112,13 +112,36 @@ if defined?(PhusionPassenger) # otherwise it breaks rake commands if you put thi
         end
 
         queue.subscribe do |metadata, payload|
-          Rails.logger.info "[AMQP] Received a message for UpdateTravel: #{payload}"
+          Rails.logger.info "[AMQP] Received a message for RefreshTravel: #{payload}"
           # Rails.logger.info "[AMQP] Metadata #{metadata.inspect}"
 
           RefreshTravelService.new.call(payload)
         end
       end
 
+      EventMachine.next_tick do
+        Rails.logger.info "[AMQP] Inside EventMachine for Check App Settings..."
+        connection = AMQP.connect(connection_setting)
+        Rails.logger.info "[AMQP] Connected to AMQP broker. Running #{AMQP::VERSION} version of the gem..."
+
+        channel  ||= AMQP::Channel.new(connection)
+        exchange = channel.topic("ttm", :durable => true)
+        queue    = channel.queue("checkappsettings", :durable => true)
+        
+        queue.bind(exchange, :routing_key => "#.ttm.checkappsettings")
+
+        channel.on_error do |ch, channel_close|
+          Rails.logger.info "[AMQP] " + channel_close.reply_text
+          connection.close { EventMachine.stop }
+        end
+
+        queue.subscribe do |metadata, payload|
+          Rails.logger.info "[AMQP] Received a message for CheckAppSettings: #{payload}"
+          # Rails.logger.info "[AMQP] Metadata #{metadata.inspect}"
+
+          CheckAppSettingsService.new.call(payload)
+        end
+      end
 
     end
 
