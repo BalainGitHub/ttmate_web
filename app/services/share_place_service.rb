@@ -23,7 +23,7 @@ class SharePlaceService
 		@device = Device.find(consuming_device_id)
 		Rails.logger.info "[AMQP] SharePlace Mobile: #{@device.mobile}"
 		send_data = {:service => "shareplace",
-					 :from_mobile => param_json["from_mobile"]
+					 :from_mobile => param_json["from_mobile"],
                      :data => params 
 		  			}.to_json
 
