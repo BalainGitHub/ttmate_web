@@ -101,6 +101,7 @@ class CreateTravelService
 				track_notice[:track_travel_start_time] = start_time
 
 				send_track_data = {:service => "createtravel-track",
+								   :from_mobile => device_mobile,
 								   :data => track_notice }.to_json
 
 				Rails.logger.debug "[AMQP] CreateTravel Send Track send_track_data: #{send_track_data.inspect}"
