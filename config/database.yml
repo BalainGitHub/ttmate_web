@@ -58,3 +58,4 @@ production:
   pool: 5
   username: ttmate_prod
   password: postgres
+  port: 2468
