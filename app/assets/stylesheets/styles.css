@@ -67,7 +67,8 @@ header.masthead .mh-slider {
   /*text-transform: capitalize;*/
 }
 #slider .container h1 span, #slider .container h3 span {
-  font-weight: bold;
+  /*font-weight: bold;*/
+  font-weight: 350;
 }
 #slider .container h1 {
   /*color: #de5749;*/

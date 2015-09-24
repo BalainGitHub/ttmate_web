@@ -1,0 +1,244 @@
+.pre-loader
+  .load-con
+    %img.animated.fadeInDown{:alt => "", :src => "/assets/logo.png"}
+      .spinner
+        .bounce1
+        .bounce2
+        .bounce3
+
+/ Wrap all page content here
+#wrap
+  %header.masthead
+    #slider.slider-container
+      .container
+        .row.mh-container
+          %h1
+            %span
+              loKatMe - Travel tracker app
+          %h3 Knowing location is bliss
+          %br
+            .col-md-4.col-md-push-4
+              %div
+                %a.btn.btn-default{:href => "https://play.google.com/store/apps/details?id=co.kanopus.kat"} Download now!
+            .col-md-10.col-md-push-1.hidden-xs.mh-slider
+              .row
+                .col-md-3
+                .col-md-6
+                  #carousel-slider.carousel.slide{"data-ride" => "carousel"}
+                    / Wrapper for slides
+                    .carousel-inner
+                      .item.active
+                        %img.img-responsive{:alt => "travel tracker", :src => "/assets/travel_tracker.png"}
+                      .item
+                        %img.img-responsive{:alt => "location messenger", :src => "/assets/when_to_use_location_messenger.png"}
+                      .item
+                        %img.img-responsive{:alt => "emergency app", :src => "/assets/emergency_app.png"}
+                    / Controls
+                    %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-slider", :role => "button"}
+                      %span.slider-left
+                    %a.right.carousel-control{"data-slide" => "next", :href => "#carousel-slider", :role => "button"}
+                      %span.slider-right
+                .col-md-3
+    / Fixed navbar
+    #nav.navbar.navbar-static-top{:role => "navigation"}
+      .container
+        .navbar-header
+          %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %i.fa.fa-align-justify
+          %a.navbar-brand{:href => "#"}
+            %img{:alt => "", :src => "/assets/logo.png"}
+        / Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          /
+            <ul class="nav navbar-nav social hidden-xs hidden-sm">
+            <li><a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter fa-lg fa-fw"></i></a></li>
+            <li><a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a></li>
+            <li><a href="#"><i class="fa fa-pinterest fa-lg fa-fw"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin fa-lg fa-fw"></i></a></li>
+            </ul>
+          %ul.nav.navbar-nav.navbar-right
+            %li.active
+              %a{:href => "#slider"} Home
+            %li
+              %a{:href => "#about"} about
+            %li
+              %a{:href => "#features"} features
+            %li
+              %a{:href => "#howitworks"} how loKatMe works?
+            %li
+              %a{:href => "#contact"} contact
+        / /.navbar-collapse
+      / /.container
+    / /.navbar
+  %section#about
+    .container
+      .row
+        .col-md-10.col-md-push-1
+          .section-heading.scrollpoint.sp-effect3
+            %h1 about
+            %span.divider
+          .col-md-6
+            %p
+              Have you ever wished if your mobile could periodically share your location to your close friends / family?
+              %br
+                %br
+                  When you are out of station on a business tour, or roaming around with your friends, or regularly commuting to office it becomes an overhead and also a commitment to keep your closed ones updated on your whereabouts.
+                  %br
+                    %br
+                      %b> loKatMe
+                      , is designed for tension free travel (both for you and your dear ones). It can notify your location to your buddies regularly, you can share your location to anyone irrespective of the kind and type of mobile they use. You can also setup wake-up alarms not based on time, but based on places and many more...
+          .col-md-6
+            %iframe{:height => "315", :src => "http://www.youtube.com/embed/BUhghspYiXM?autoplay=0", :width => "420"}
+  %section#features
+    .container
+      .row
+        .col-md-8.col-md-push-2.clearfix
+          .section-heading.scrollpoint.sp-effect3
+            %h1
+              %span features
+            %span.divider
+            %p
+        .col-md-12
+          #carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
+            / Wrapper for slides
+            .carousel-inner
+              .item.active
+                .row
+                  .col-md-3.col-sm-6
+                    .feature.scrollpoint.sp-effect2
+                      .icon
+                        %i.fa.fa-bell-o.fa-4x
+                      %h4
+                        %b Location Alarm
+                      %p Set up alarm based on location and wake up at the right time before your destination.
+                  .col-md-3.col-sm-6
+                    .feature.scrollpoint.sp-effect2
+                      .icon
+                        %i.fa.fa-bullhorn.fa-4x
+                      %h4
+                        %b Auto Emergency Alert
+                      %p Emergency? be alert, or alert your buddy.
+                  .col-md-3.col-sm-6
+                    .feature.scrollpoint.sp-effect2
+                      .icon
+                        %i.fa.fa-comments-o.fa-4x
+                      %h4
+                        %b Messenger or SMS?
+                      %p
+                        loKatMe to loKatMe users is FREE, share more.
+                        %br loKatMe to others, pay ur normal SMS charges to operator. Not us!
+                  .col-md-3.col-sm-6
+                    .feature.scrollpoint.sp-effect1
+                      .icon
+                        %i.fa.fa-money.fa-4x
+                      %h4
+                        %b Free
+                      %p Download loKatMe for free. Available only in Android Play Store.
+              .item
+                .row
+                  .col-md-3.col-sm-6
+                    .feature.scrollpoint.sp-effect1
+                      .icon
+                        %i.fa.fa-share-alt.fa-4x
+                      %h4
+                        %b Share my location
+                      %p Share your location and not address to your buddies.
+                  .col-md-3.col-sm-6
+                    .feature.scrollpoint.sp-effect2
+                      .icon
+                        %i.fa.fa-rocket.fa-4x
+                      %h4
+                        %b Routine Travel?
+                      %p Routine travel to work? Set once and track ever.
+                  .col-md-3.col-sm-6
+                    .feature.scrollpoint.sp-effect1
+                      .icon
+                        %i.fa.fa-clock-o.fa-4x
+                      %h4
+                        %b Regular Updates
+                      %p Regular location intimation, helps buddies to pick up / meet at the right time.
+                  .col-md-3.col-sm-6
+                    .feature.scrollpoint.sp-effect1
+                      .icon
+                        %i.fa.fa-lock.fa-4x
+                      %h4
+                        %b Absolutely safe to use!
+                      %p Share your location to the buddy you wish to share.
+            / Indicators
+            %ol.carousel-indicators
+              %li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
+              %li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
+  %section#howitworks
+    .container
+      .row
+        .col-md-8.col-md-push-2.clearfix
+          .section-heading.scrollpoint.sp-effect3
+            %h1
+              %span
+              how it works?
+            %span.divider
+      / .col-md-10.col-md-push-1.hidden-xs
+      .col-lg-12
+        .row
+          .col-sm-2.col-lg-3
+          .col-xs-12.col-sm-8.col-lg-6
+            #carousel-slider.carousel.slide{"data-ride" => "carousel"}
+              / Wrapper for slides
+              .carousel-inner
+                .item.active
+                  %h2 Travel Tracker
+                  %img.img-responsive{:alt => "travel tracker", :src => "/assets/travel_tracker_complete_or.png"}
+                .item
+                  %h2 Emergency
+                  %img.img-responsive{:alt => "emergency alert", :src => "/assets/travel_emergency_complete_or.png"}
+                .item
+                  %h2 Share Location
+                  %img.img-responsive{:alt => "location sharing", :src => "/assets/share_place_complete_or.png"}
+          .col-sm-2.col-lg-3
+  %footer#contact
+    .container
+      .row
+        .col-md-8.col-md-push-2.clearfix
+          .section-heading.scrollpoint.sp-effect3
+            %h1
+              %span get in touch
+            %span.divider
+            %p Share your feedback with us.
+        .col-md-12
+          %form{:role => "form"}
+            .col-md-6
+              .row
+                .col-md-6.spirat
+                  .form-group
+                    %input#feedback_name.form-control{:placeholder => "Your Name", :type => "text"}
+                .col-md-6.spirat
+                  .form-group
+                    %input#feedback_email.form-control{:placeholder => "Your Email", :type => "email"}
+            .col-md-6
+              .input-group
+                %input#feedback_message.form-control{:placeholder => "Your Message", :type => "text"}
+                  %span.input-group-btn
+                    %button#feedback-submit.btn{:type => "button"} submit your message
+        .col-md-12
+          .social
+            %ul
+              %li
+                %a{:href => "#"}
+                  %i.fa.fa-google-plus.fa-lg
+              %li
+                %a{:href => "#"}
+                  %i.fa.fa-twitter.fa-lg
+              %li
+                %a{:href => "#"}
+                  %i.fa.fa-facebook.fa-lg
+
+
+
+%script{:src => "/assets/script.js"}
+:javascript
+  $(document).ready(function() {
+    appMaster.preLoader();
+  });
+	      

@@ -44,6 +44,8 @@ GEM
     gcm (0.1.0)
       httparty
       json
+    haml (4.0.7)
+      tilt
     hike (1.2.3)
     httparty (0.13.3)
       json (~> 1.8)
@@ -128,6 +130,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   eventmachine
   gcm
+  haml
   jbuilder (~> 1.2)
   jquery-rails
   pg (~> 0.18)
