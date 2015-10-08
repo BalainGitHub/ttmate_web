@@ -16,6 +16,7 @@ class UpdateTravelService
 
 	    Rails.logger.debug "[AMQP] UpdateTravel params: #{params}"
 		param_json = JSON.parse(params)
+		sender_mobile = param_json["from"]
 		Rails.logger.debug "[AMQP] UpdateTravel Json params: #{param_json["travel"]}"
 
     	@travel = Travel.find(param_json["travel"]["id"])
@@ -83,6 +84,7 @@ class UpdateTravelService
 				# track_notice[:track_travel_start_time] = @travel.travel_start_time
 
 				send_track_data = {:service => "updatetravel-track",
+								   :from_mobile => sender_mobile,
 								   :data => track_notice }.to_json
 
 				Rails.logger.debug "[AMQP] UpdateTravel Send Track send_track_data: #{send_track_data.inspect}"
