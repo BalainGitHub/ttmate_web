@@ -43,6 +43,9 @@ gem 'jbuilder', '~> 1.2'
 gem 'eventmachine'
 gem 'amqp'
 
+# SSl Rack middleware
+gem 'rack-ssl-enforcer'
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

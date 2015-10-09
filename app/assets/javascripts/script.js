@@ -24,7 +24,7 @@ var appMaster = {
         /* affix the navbar after scroll below header */
         $('#nav.navbar-static-top').affix({
             offset: {
-                top: $('header').height() - $('#nav').height()
+                top: ($('header').height() - $('#nav').height() ) / 2
             }
         });
 
@@ -64,9 +64,9 @@ var appMaster = {
 
         var docHeight = $(window).height();
         
-        $("#slider").height(docHeight + "px");
+        $("#slider").height((docHeight-100) + "px");
 
-        $('.mh-container').height(docHeight + "px");
+        $('.mh-container').height((docHeight-100) + "px");
 
     },
     owlCarousel: function(){

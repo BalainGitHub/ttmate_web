@@ -38,7 +38,7 @@ header.masthead h1, header.masthead h2, header.masthead h3 {
   color: #3d3f40;
 }
 header.masthead .mh-slider {
-  position: absolute;
+  /*position: absolute;*/
   bottom: 0;
   top: auto;
 }

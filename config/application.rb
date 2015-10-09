@@ -25,5 +25,8 @@ module TtmateWeb
 
     # # Add lib files 
     # config.autoload_paths += %W(#{Rails.root}/app/workers)
+
+    # SSL Rack Middleware
+    # config.middleware.use Rack::SslEnforcer, :only => %r{^/api/}
   end
 end

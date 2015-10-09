@@ -13,7 +13,8 @@
 //= require jquery.min
 //= require jquery_ujs
 //= require bootstrap.min
+//= require modernizr.custom.32033
 //= require owl.carousel.min
 //= require waypoints.min
-//= require script.js
+//= require script
 //= require_tree .

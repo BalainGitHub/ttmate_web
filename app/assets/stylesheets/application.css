@@ -9,10 +9,10 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require bootstrap.min
- *= require animate
  *= require font-awesome.min
- *= require owl.carousel
+ *= require animate
  *= require owl.theme
+ *= require owl.carousel
  *= require styles
  *= require_self
  *= require_tree .

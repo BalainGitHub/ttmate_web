@@ -5,7 +5,7 @@ class CheckAppSettingsService
 
 		connection_setting = {
 	      :host      => "localhost",
-	      :port      => 8642,
+	      :port      => 5672,
 	      :user      => "kanopus",
 	      :pass      => "k@nopu5",
 	      :vhost     => "/",
