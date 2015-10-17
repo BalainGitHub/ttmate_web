@@ -5,7 +5,7 @@ if defined?(PhusionPassenger) # otherwise it breaks rake commands if you put thi
 
     connection_setting = {
       :host      => "localhost",
-      :port      => 8642,
+      :port      => 5137,
       :user      => "kanopus",
       :pass      => "k@nopu5",
       :vhost     => "/",

@@ -5,7 +5,7 @@ class SharePlaceService
 
 		connection_setting = {
 	      :host      => "localhost",
-	      :port      => 5672,
+	      :port      => 5137,
 	      :user      => "kanopus",
 	      :pass      => "k@nopu5",
 	      :vhost     => "/",
