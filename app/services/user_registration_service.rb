@@ -11,7 +11,7 @@ class UserRegistrationService
 
 		connection_setting = {
 	      :host      => "localhost",
-	      :port      => 5137,
+	      :port      => 5672,
 	      :user      => "kanopus",
 	      :pass      => "k@nopu5",
 	      :vhost     => "/",
