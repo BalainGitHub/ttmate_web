@@ -1,6 +1,8 @@
 TtmateWeb::Application.routes.draw do
   #get ':controller(/:action(/:id(.:format)))'
   root to: 'home#index'
+  get 'help' => 'home#help'
+  get 'privacy' => 'home#privacy'
 
   # get 'downloads' => 'download#show'
 

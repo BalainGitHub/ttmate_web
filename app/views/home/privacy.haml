@@ -1,0 +1,44 @@
+.pre-loader
+  .load-con
+    %img.animated.fadeInDown{:alt => "", :src => "/assets/logo.png"}
+      .spinner
+        .bounce1
+        .bounce2
+        .bounce3
+
+/ Wrap all page content here
+#wrap
+  %header.masthead
+    #slider.slider-container
+      .container
+        .row.mh-container
+          %br
+          %br
+          %br
+          %br
+          %br
+          %h3 Coming Soon...
+    / Fixed navbar
+    #nav.navbar.navbar-static-top{:role => "navigation"}
+      .container
+        .navbar-header
+          %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %i.fa.fa-align-justify
+          %a.navbar-brand{:href => "#"}
+            %img{:alt => "", :src => "/assets/logo.png"}
+        / Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          %ul.nav.navbar-nav.navbar-right
+            %li.active
+              = link_to "Home", root_path
+              / %a{:href => "localhost:3000"} Home
+        / /.navbar-collapse
+      / /.container
+    / /.navbar
+%script{:src => "/assets/script.js"}
+:javascript
+  $(document).ready(function() {
+    appMaster.preLoader();
+  });
+  
