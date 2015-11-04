@@ -12,4 +12,8 @@ class HomeController < ApplicationController
 	def privacy
 		@title = "loKatMe - Privacy"
 	end
+
+	def privacy
+		@title = "loKatMe - Sitemap"
+	end
 end

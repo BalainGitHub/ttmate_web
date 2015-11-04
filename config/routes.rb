@@ -3,6 +3,7 @@ TtmateWeb::Application.routes.draw do
   root to: 'home#index'
   get 'help' => 'home#help'
   get 'privacy' => 'home#privacy'
+  get 'sitemap' => 'home#sitemap'
 
   # get 'downloads' => 'download#show'
 
